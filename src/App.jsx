@@ -1,5 +1,4 @@
-// ! 需要修正按計算時錢包會扣錢的問題
-// ! 要按兌換才會扣錢
+
 // ! 重新計算需要調整
 import { useState } from "react";
 import AddCurrency from "./container/AddCurrency";
@@ -15,9 +14,11 @@ function App() {
   const [exchangeRecord, setExchangeRecord] = useState([]);
   const [wallet, setWallet] = useState(5000);
   const [inputNTD, setInputNTD] = useState(``);
+
   return (
-    <>
-      <AddCurrency setCurrencyData={setCurrencyData} />
+    <div className="flex flex-col justify-center h-full container">
+      <h1 className="text-center text-2xl font-bold border border-black py-2">匯率計算機</h1>
+      <AddCurrency setCurrencyData={setCurrencyData}/>
       <Wallet
         currencyData={currencyData}
         setCurrencyData={setCurrencyData}
@@ -30,14 +31,16 @@ function App() {
         <CanChange
           currencyData={currencyData}
           setExchangeRecord={setExchangeRecord}
-          exchangeRecord={exchangeRecord}
+          wallet={wallet}
+          inputNTD={inputNTD}
+          setWallet={setWallet}
         />
         <ExChangeRecord
           currencyData={currencyData}
           exchangeRecord={exchangeRecord}
         />
       </div>
-    </>
+    </div>
   );
 }
 

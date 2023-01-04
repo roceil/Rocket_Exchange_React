@@ -1,6 +1,11 @@
 import CurrencyItems from "../component/CurrencyItems";
 
-function CurrencyList({ currencyData, setExchangeRecord,exchangeRecord }) {
+function CurrencyList({
+  currencyData,
+  setExchangeRecord,
+  inputNTD,
+  setWallet,
+}) {
   return (
     <ul className="flex  flex-col items-center space-y-3">
       {currencyData.map((item, index) => {
@@ -11,9 +16,9 @@ function CurrencyList({ currencyData, setExchangeRecord,exchangeRecord }) {
             coinName={coinName}
             rate={rate}
             NTD={NTD}
-            currencyData={currencyData}
             setExchangeRecord={setExchangeRecord}
-            exchangeRecord={exchangeRecord}
+            inputNTD={inputNTD}
+            setWallet={setWallet}
           />
         );
       })}
