@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 function TransferMoney({
-  setWallet,
   inputNTD,
   setInputNTD,
   currencyData,
@@ -17,9 +16,6 @@ function TransferMoney({
       setInputNTD(``);
       return;
     }
-    setWallet((prev) => {
-      return prev - inputNTD;
-    });
     setCurrencyData(() => {
       const ExchangeData = currencyData.map((item) => {
         return {
@@ -30,7 +26,6 @@ function TransferMoney({
       });
       return ExchangeData;
     });
-    setInputNTD(``);
   };
   const clearCurrency = () => {
     location.reload();
